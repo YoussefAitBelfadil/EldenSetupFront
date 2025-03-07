@@ -1,15 +1,15 @@
-import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import { Row,Col,Button,Form,Navbar,InputGroup,Dropdown,DropdownButton,Offcanvas } from 'react-bootstrap';
 import search from '../images/recherche.png';
-import panier from '../images/ajouter-un-panier.png'
-import papier from '../images/papiers.png'
-import { Row,Col } from 'react-bootstrap';
+import user from '../images/utilisateur.png'
+import { useState } from 'react';
 
 export default function Nav() {
+  
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
   return (
     <Navbar className="bg-white justify-content-center">
     <Row className='justify-content-between'>
@@ -30,8 +30,20 @@ export default function Nav() {
         </Row>
       </Col>
       <Col > 
-        <div style={{ position:'absolute',right:0 }}><img src={panier} alt='search icon' style={{ width:30,height:'auto' }}/>
-      <img src={papier} alt='search icon' style={{ width:30,height:'auto' }}/></div>
+        <div style={{ position:'absolute',right:0 }}>
+            <img src={user} alt='search icon' style={{ width:30,height:'auto' }}/>
+            <Button variant="primary" onClick={handleShow}>
+            <img src={search} alt='search icon' style={{ width:30,height:'auto' }}/>
+            </Button>
+            <Offcanvas show={show} onHide={handleClose} placement="end">
+                  <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>PANIER</Offcanvas.Title>
+                  </Offcanvas.Header>
+                  <Offcanvas.Body>
+                    //body
+                  </Offcanvas.Body>
+                </Offcanvas>
+      </div>
       
       </Col>
       </Row>

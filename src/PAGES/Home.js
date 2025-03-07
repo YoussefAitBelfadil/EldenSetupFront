@@ -10,13 +10,16 @@ import c1 from "../images/utilisateur-actif (1).png"
 import c2 from "../images/ecran.png"
 import c3 from "../images/chariot (1).png"
 import Product from "../components/product";
+import Productfull from "../components/productFull";
 
 
 export default function Home(){
     return( <>
+    <div style={{height:'100vh'}}>
         <Navbar/>
         <Filter/>
-        <Carouseel/>
+        <Carouseel />
+    </div>
         <Row >
             <Col>
             <Card className="bg-dark text-black mt-5 ms-4" border="light">
@@ -76,6 +79,7 @@ export default function Home(){
         </Row>
 
         <Product/>
+        <Productfull/>
 
 
 
