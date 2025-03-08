@@ -11,6 +11,7 @@ import c2 from "../images/ecran.png"
 import c3 from "../images/chariot (1).png"
 import Product from "../components/product";
 import Productfull from "../components/productFull";
+import ProductPage from "../components/productdesc";
 
 
 export default function Home(){
@@ -80,6 +81,7 @@ export default function Home(){
 
         <Product/>
         <Productfull/>
+        <ProductPage />
 
 
 
