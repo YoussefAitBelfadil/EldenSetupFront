@@ -3,10 +3,9 @@ import "../CSS/pay.css";
 import 'font-awesome/css/font-awesome.min.css';
 
 
-export default function Ap() {
+export default function Pay() {
   return ( <>
     <div class="card">
-            
             <div class="card-body">
                 <div class="row upper"></div>
                 <div class="row">
