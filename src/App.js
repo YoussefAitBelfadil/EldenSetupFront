@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
-import Pay from './components/paiement';
+import Devis from './PAGES/devis';
 
 function App() {
   return (<>
     { /*<Home /> */ }
-    <Pay/>
+    <Devis/>
     </>
   );
 }
