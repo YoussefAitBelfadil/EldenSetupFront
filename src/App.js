@@ -1,11 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
-import Devis from './PAGES/devis';
+import ProductCard from './components/card';
+
+
 
 function App() {
   return (<>
     { /*<Home /> */ }
-    <Devis/>
+    <ProductCard/>
     </>
   );
 }
