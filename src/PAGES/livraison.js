@@ -4,7 +4,9 @@ import img from "../images/Livraison.jpeg";
 import img1 from "../images/liv1.jpg";
 import img2 from "../images/liv2.jpg"
 import Filter from "../components/filter";
-import Navvv from "../components/Navbar"
+import Navvv from "../components/Navbar";
+import MyFooter from "../components/footer";
+
 
 
 export default function Livraison(){
@@ -42,6 +44,7 @@ export default function Livraison(){
                 </Col>
                 </Row>
             </Container>
+            <MyFooter />
         </>
     )
 }
