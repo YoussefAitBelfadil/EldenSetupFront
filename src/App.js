@@ -4,6 +4,7 @@ import ProductCard from './components/card';
 import Livraison from './PAGES/livraison';
 import Paiement from './PAGES/paiement';
 import Aboutt from './PAGES/about';
+import Solve from './PAGES/solve';
 
 
 
@@ -12,10 +13,11 @@ function App() {
     { /*<Home />
     <ProductCard/>
     <Livraison />
-    <Paiement /> */ }
+    <Paiement/>
+    <Aboutt /> */ }
     
+    <Solve />
     
-    <Aboutt />
     
     </>
   );

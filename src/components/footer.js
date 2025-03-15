@@ -4,8 +4,6 @@ import img from "../images/outil.png"
 import img1 from "../images/appel.png"
 import img2 from "../images/whatsapp (1).png"
 import img3 from "../images/enveloppe (1).png"
-import arr from "../images/fleche-de-retour.png"
-import arr2 from "../images/fleche-de-retour (1).png"
 
 function MyFooter(){
     return( 
@@ -25,20 +23,20 @@ function MyFooter(){
             <div className="col-md-2 mb-md-0 mb-3">
                 <h5 className="text-start" style={{color:'white'}}>Informations</h5>
                 <ul className="list-unstyled text-start lh-lg">
-                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none",}}> > Modes de livraison </a></li>
-                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> > Modes de paiement</a></li>
-                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> > Qui sommes nous?</a></li>
-                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> > Link 4</a></li>
+                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none",}}> &gt; Modes de livraison </a></li>
+                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> &gt; Modes de paiement</a></li>
+                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> &gt; Qui sommes nous?</a></li>
+                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> &gt; Problèmes/Solutions</a></li>
                 </ul>
             </div>
 
             <div className="col-md-2 mb-md-0 mb-3">
                 <h5 className="text-start" style={{color:'white'}}>Mon compte</h5>
                 <ul className="list-unstyled text-start lh-lg" >
-                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> > Link 1</a></li>
-                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> > Link 2</a></li>
-                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> > Link 3</a></li>
-                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> > Link 4</a></li>
+                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> &gt; Link 1</a></li>
+                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> &gt; Link 2</a></li>
+                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> &gt; Link 3</a></li>
+                    <li><a href="#!" style={{color:'#b2b2b2',textDecoration:"none"}}> &gt; Demander un devis</a></li>
                 </ul>
             </div>
 
