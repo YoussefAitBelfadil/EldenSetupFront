@@ -1,4 +1,4 @@
-import Filter from "../components/filter";
+import Filterr from "../components/filter";
 import Navbar from "../components/Navbar"
 import Carouseel from "../components/Carousel/carousel"
 import {Row,Col } from 'react-bootstrap';
@@ -18,7 +18,7 @@ export default function Home(){
     return( <>
     <div style={{height:'100vh'}}>
         <Navbar/>
-        <Filter/>
+        <Filterr/>
         <Carouseel />
     </div>
         <Row >

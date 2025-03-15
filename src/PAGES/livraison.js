@@ -3,7 +3,7 @@ import { Container, Row, Col, Nav } from "react-bootstrap";
 import img from "../images/Livraison.jpeg";
 import img1 from "../images/liv1.jpg";
 import img2 from "../images/liv2.jpg"
-import Filter from "../components/filter";
+import Filterr from "../components/filter";
 import Navvv from "../components/Navbar";
 import MyFooter from "../components/footer";
 
@@ -14,7 +14,7 @@ export default function Livraison(){
         <>
         <div className="bg-white">
             <Navvv/>
-            <Filter />
+            <Filterr />
         </div>
             
             <Container className="w-100 mt-5">
@@ -40,7 +40,7 @@ export default function Livraison(){
                     </Row>
                 </Col>
                 <Col md={2} >
-                    <img src={img2} alt="Livraison" style={{width:'250px' , height:'auto'}}/>
+                    <img src={img2} alt="Livraison" style={{width:'200px' , height:'auto'}}/>
                 </Col>
                 </Row>
             </Container>

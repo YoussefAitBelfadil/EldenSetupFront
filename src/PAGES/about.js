@@ -6,7 +6,7 @@ import img1 from "../images/team-iris.jpg";
 import img2 from "../images/liv2.jpg"
 import Navvv from "../components/Navbar";
 import MyFooter from "../components/footer";
-import BasicExample from "../components/filterr";
+import Filterr from "../components/filter";
 
 
 
@@ -16,7 +16,7 @@ export default function Aboutt(){
         <div style={{backgroundColor:"#F7F7F7"}}>
         <div className="bg-white">
             <Navvv/>
-            <BasicExample />
+            <Filterr />
         </div>
             
             <Container className="w-100 mt-5 ">
@@ -58,7 +58,7 @@ export default function Aboutt(){
                     
                 </Col>
                 <Col md={2} >
-                    <img src={img2} alt="Livraison" style={{width:'250px' , height:'auto'}}/>
+                    <img src={img2} alt="Livraison" style={{width:'200px' , height:'auto'}}/>
                 </Col>
                 </Row>
             </Container>
