@@ -8,8 +8,8 @@ import "../CSS/filtercss.css"
 export default function Filter() {
     const images = Array.from({ length: 47 }, (_, i) => require(`../images/mark/${i + 1}.jpg`));
     return (
+        <>
         <Row style={{ borderLeft: "1px solid grey", borderRight: "1px solid grey" }} className='mt-4 p-2'>
-        
             <Col className='p-2' style={{ borderLeft: "1px solid grey", borderRight: "1px solid grey" ,borderTop: "1px solid grey"}}>
             <DropdownButton  id="dropdown-basic-button" title="Main Menu" >
                 <Dropdown.Item href="#/action-1">Action 1</Dropdown.Item>
@@ -79,4 +79,5 @@ export default function Filter() {
             </div>
             </Col>
         </Row>
+        </>
     )}
