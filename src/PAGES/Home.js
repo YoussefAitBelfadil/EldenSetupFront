@@ -92,14 +92,6 @@ export default function Home(){
 
 
 
-
-
-
-
-
-
-
-
-            </>
+    </>
     );
 }
