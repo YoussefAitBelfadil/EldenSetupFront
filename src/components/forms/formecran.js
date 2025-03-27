@@ -20,7 +20,7 @@ export default function Formecran(name) {
     <Form noValidate validated={validated} onSubmit={handleSubmit} >
       <Row className='m-2   d-grid gap-1 ' style={{gridTemplateColumns: "repeat(3, 2fr)",gridGap: "10px",}}>
         <Form.Group  controlId="validationCustom01" className='p-2 '>
-          <Form.Control required readOnly type="text" placeholder='ECRAN / MONITEUR' style={{width:'300px',textAlign: 'center',height:'50px',borderRadius:'5px'}}/>
+          <Form.Control required readOnly type="text" value={'ECRAN'} placeholder='ECRAN' style={{width:'300px',textAlign: 'center',height:'50px',borderRadius:'5px'}}/>
         </Form.Group>
 
         <Form.Group  controlId="validationCustom04" className='p-2 '>

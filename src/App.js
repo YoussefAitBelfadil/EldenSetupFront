@@ -1,13 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
-import ProductCard from './components/card';
-import Livraison from './PAGES/livraison';
-import Paiement from './PAGES/paiement';
-import Aboutt from './PAGES/about';
-import Solve from './PAGES/solve';
-import Home from "../src/PAGES/Home"
-import Profil from './PAGES/profil';
-
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes/index';
 
 
 function App() {
@@ -19,12 +13,12 @@ function App() {
     <Paiement/>
     <Aboutt /> 
     <Solve />
-    <Profil/>
+    <Home />
     */ }
     
     
     
-    <Home />
+    <RouterProvider router={router} />
     
     </>
   );

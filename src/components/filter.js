@@ -5,7 +5,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Dropdown from 'react-bootstrap/Dropdown';
 import {Col } from 'react-bootstrap';
 import Badge from 'react-bootstrap/Badge';
-import "../CSS/filtercss.css"
 
 export default function Filterr() {
     const images = Array.from({ length: 47 }, (_, i) => require(`../images/mark/${i + 1}.jpg`));
@@ -13,7 +12,7 @@ export default function Filterr() {
   return (
     <div style={{ width: "100%", borderTop: "1px solid grey",marginTop:"15px"}}>
     <Navbar expand="lg" className=" bg-white ">
-      <Container >
+      
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
 
@@ -83,7 +82,7 @@ export default function Filterr() {
 </Col>
 </Nav>
         </Navbar.Collapse>
-      </Container>
+      
     </Navbar>
     </div>
   );

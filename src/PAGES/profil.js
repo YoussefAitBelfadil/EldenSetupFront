@@ -36,7 +36,8 @@ export default function Profil() {
   };
 
   return (
-    <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+    <div style={{height:'100%'}}>
+    <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
       <Row>
         <Col sm={3}>
           <Nav variant="pills" className="flex-column mt-4 text-center">
@@ -89,5 +90,6 @@ export default function Profil() {
         </Col>
       </Row>
     </Tab.Container>
+    </div>
   );
 }

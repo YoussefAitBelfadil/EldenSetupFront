@@ -9,7 +9,7 @@ export default function Formper() {
   const [type, setType] = useState("");
 
   const handleChildSubmit = (data) => {
-    console.log("Données soumises :", data);// Envoyer les données à une API ou effectuer une action
+    console.log("Données soumises :", data);
   };
 
   return (

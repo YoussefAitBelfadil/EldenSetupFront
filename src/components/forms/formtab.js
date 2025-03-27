@@ -28,10 +28,6 @@ export default function Formtab(name) {
         </Form.Group>
 
         <Form.Group  controlId="validationCustom02" className='p-2 '>
-          <Form.Control required type="text" placeholder="Type de produit" style={{width:'300px',textAlign: 'center',height:'50px',borderRadius:'5px'}}/>
-        </Form.Group>
-
-        <Form.Group  controlId="validationCustom02" className='p-2 '>
           <Form.Control required type="text" placeholder="Marque" style={{width:'300px',height:'50px',textAlign: 'center',borderRadius:'5px'}}/>
         </Form.Group>
 

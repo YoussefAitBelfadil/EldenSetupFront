@@ -1,5 +1,4 @@
 import Filterr from "../components/filter";
-import Navbar from "../components/Navbar"
 import Carouseel from "../components/Carousel/carousel"
 import {Row,Col } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
@@ -12,15 +11,31 @@ import c3 from "../images/chariot (1).png"
 import Product from "../components/product";
 import Productfull from "../components/productFull";
 import ProductPage from "../components/productdesc";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home(){
+    const [products, setProducts] = useState([]);
+  const [selectedType, setSelectedType] = useState("ORDINATEUR"); 
+
+//api
+useEffect(() => {
+    if (selectedType) {
+      axios
+        .get(`http://localhost:8000/api/products/${selectedType}`)
+        .then((response) => {
+          setProducts(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching products:", error);
+        });
+    }
+  }, [selectedType]);
+
+
     return( <>
-    <div style={{height:'100vh'}}>
-        <Navbar/>
         <Filterr/>
         <Carouseel />
-    </div>
         <Row >
             <Col>
             <Card className="bg-dark text-black mt-5 ms-4" border="light">
@@ -79,19 +94,36 @@ export default function Home(){
             </div>
         </Row>
 
-        <Product/>
-        <Productfull/>
-        <ProductPage />
+        <Row className="m-3">
+        <Col  className={`border-bottom border-dark ${selectedType === "ORDINATEUR" ? "fw-bold text-primary" : ""}`}>
+        <h5 className="pb-2" onClick={() => setSelectedType("ORDINATEUR")}>Ordinateur</h5>
+    </Col>
+    <Col  className={`border-bottom border-dark ${selectedType === "IMPRIMANTE" ? "fw-bold text-primary" : ""}`}>
+        <h5 className="pb-2" onClick={() => setSelectedType("IMPRIMANTE")}>Imprimante</h5>
+    </Col> 
+    <Col  className={`border-bottom border-dark ${selectedType === "ECRAN" ? "fw-bold text-primary" : ""}`}>
+        <h5 className="pb-2" onClick={() => setSelectedType("ECRAN")}>Ecran</h5>
+    </Col> 
+    <Col  className={`border-bottom border-dark ${selectedType === "CLAVIER" ? "fw-bold text-primary" : ""}`}>
+        <h5 className="pb-2" onClick={() => setSelectedType("CLAVIER")}>Clavier</h5>
+    </Col> 
+    <Col  className={`border-bottom border-dark ${selectedType === "SOURIS" ? "fw-bold text-primary" : ""}`}>
+        <h5 className="pb-2" onClick={() => setSelectedType("SOURIS")}>Souris</h5>
+    </Col> 
+    <Col  className={`border-bottom border-dark ${selectedType === "stockage" ? "fw-bold text-primary" : ""}`}>
+        <h5 className="pb-2" onClick={() => setSelectedType("stockage")}>Stockage</h5>
+    </Col> 
+    <Col  className={`border-bottom border-dark ${selectedType === "TABLETTE_GRAPHIQUE" ? "fw-bold text-primary" : ""}`}>
+        <h5 className="pb-2" onClick={() => setSelectedType("TABLETTE_GRAPHIQUE")}>Tablette</h5>
+    </Col> 
+        </Row>
 
-
-
-
-
-
-
-
-
-
+        <div>
+        {products.map(products => (
+          <Product key={products.id} products={products} />
+        ))}
+      </div>
+        
     </>
     );
 }

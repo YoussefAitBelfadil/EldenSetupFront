@@ -1,21 +1,36 @@
 import { useState, useEffect } from "react";
 
 const Countdown = ({ daysInput = 1 }) => {
-  const [timeLeft, setTimeLeft] = useState(daysInput * 24 * 60 * 60 * 1000);
+  const [timeLeft, setTimeLeft] = useState(() => {
+    // Check if there's a stored timeLeft value in localStorage
+    const savedTimeLeft = localStorage.getItem("timeLeft");
+    if (savedTimeLeft) {
+      return parseInt(savedTimeLeft);
+    }
+    // Otherwise, calculate the initial time left based on the input
+    return daysInput * 24 * 60 * 60 * 1000;
+  });
 
   useEffect(() => {
-    setTimeLeft(daysInput * 24 * 60 * 60 * 1000);
-  }, [daysInput]);
+    // Store the timeLeft in localStorage whenever it changes
+    localStorage.setItem("timeLeft", timeLeft);
+  }, [timeLeft]);
 
   useEffect(() => {
     if (timeLeft <= 0) return;
 
     const interval = setInterval(() => {
-      setTimeLeft(prevTime => (prevTime <= 1000 ? 0 : prevTime - 1000));
+      setTimeLeft(prevTime => {
+        if (prevTime <= 1000) {
+          localStorage.removeItem("timeLeft"); // Clear stored time when countdown finishes
+          return 0;
+        }
+        return prevTime - 1000;
+      });
     }, 1000);
 
     return () => clearInterval(interval); 
-  }, [timeLeft]); 
+  }, [timeLeft]);
 
   const formatTime = (time) => {
     if (time <= 0) return { days: 0, hours: "00", minutes: "00", seconds: "00" };

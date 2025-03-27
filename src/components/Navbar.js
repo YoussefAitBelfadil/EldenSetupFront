@@ -1,9 +1,12 @@
-import { Row,Col,Button,Form,Navbar,InputGroup,Dropdown,DropdownButton,Offcanvas } from 'react-bootstrap';
+import { Row,Col,Button,Form,Navbar,InputGroup,Offcanvas } from 'react-bootstrap';
 import search from '../images/chercher.png';
+import panier from '../images/ajouter-un-panier.png'
 import rsearch from '../images/recherche.png';
+import logo from '../images/logo.png'
 import user from '../images/utilisateur.png'
 import { useState } from 'react';
 import "../CSS/devis.css"
+import { Link } from 'react-router-dom';
 
 export default function Navvv(){
   
@@ -13,29 +16,34 @@ export default function Navvv(){
     const handleShow = () => setShow(true);
   
   return (
-    <Navbar className="bg-white justify-content-center mt-3">
-    <Row className='justify-content-between'>
-        <Col> <h2 style={{ position:'absolute',left:0 }}>RAMSYS</h2> </Col>
-        <Col>
-      <Row >
-        <InputGroup className=' flex-nowrap' >
-          <InputGroup.Text id="basic-addon1" >
-            <DropdownButton id="dropdown-basic-button" title="Dropdown button"  >
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-            </DropdownButton>
-          </InputGroup.Text>
-          <Form.Control placeholder="Chercher d'un produit..." aria-label="Username"  aria-describedby="basic-addon1" style={{width:"500px"}} />
-          <InputGroup id="basic-addon2" > <Button style={{backgroundColor:'#129cb8'}}><img src={search} alt='search icon' style={{ width:30,height:'auto',backgroundColor:'#129cb8'}}/></Button></InputGroup>
-        </InputGroup>
-        </Row>
+    <Navbar className="bg-white justify-content-around  mt-3">
+    <Row className='d-flex justify-content-between'>
+        <Col> <img src={logo} alt='logo' style={{width:'100px'}} /> </Col>
+      <Col>
+          <Row >
+            <InputGroup className=' flex-nowrap' >
+              <Form.Select aria-label="Default select example" placeholder='hello'>
+                <option>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </Form.Select>
+              <Form.Control placeholder="Chercher d'un produit..." aria-label="Username"  aria-describedby="basic-addon1" style={{width:"500px"}} />
+              <InputGroup id="basic-addon2" > 
+                <Button style={{backgroundColor:'#129cb8'}}><img src={search} alt='search icon' style={{ width:30,height:'auto',backgroundColor:'#129cb8'}}/></Button>
+              </InputGroup>
+            </InputGroup>
+          </Row>
       </Col>
       <Col > 
         <div style={{ position:'absolute',right:0 }}>
-            <img src={user} alt='search icon' style={{ width:30,height:'auto' }}/>
-            <Button variant="primary" onClick={handleShow}>
+        <Link>
+          <img src={user} alt='search icon' style={{ width:30,height:'auto' }}/>
+        </Link>
+            
             <img src={rsearch} alt='search icon' style={{ width:30,height:'auto' }}/>
+            <Button variant="primary" onClick={handleShow}>
+            <img src={panier} alt='search icon' style={{ width:30,height:'auto' }}/>
             </Button>
             <Offcanvas show={show} onHide={handleClose} placement="end">
                   <Offcanvas.Header closeButton>
@@ -44,8 +52,8 @@ export default function Navvv(){
                   <Offcanvas.Body>
                     //body
                   </Offcanvas.Body>
-                </Offcanvas>
-      </div>
+            </Offcanvas>
+          </div>
       
       </Col>
       </Row>

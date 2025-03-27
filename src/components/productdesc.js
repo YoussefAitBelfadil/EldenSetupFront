@@ -29,7 +29,7 @@ export default function ProductPage() {
                 <div className='d-flex justify-content-center'> 
                     <img src={currentImg} alt={product.name}   style={{width:'350px',height:'auto'}}/>
                 </div>
-                <div className='d-flex  justify-content-center '>
+                <div className='d-flex  justify-content-center gap-5'>
                     <img src={im1} alt={product.name} style={{width:'80px',height:'auto'}}  onClick={() => handleClick(im1)}/>
                     <img src={im2} alt={product.name}  style={{width:'80px',height:'auto'}} onClick={() => handleClick(im2)}/>
                     <img src={im3} alt={product.name}  style={{width:'80px',height:'auto'}} onClick={() => handleClick(im3)}/>
