@@ -9,8 +9,6 @@ import c1 from "../images/utilisateur-actif (1).png"
 import c2 from "../images/ecran.png"
 import c3 from "../images/chariot (1).png"
 import Product from "../components/product";
-import Productfull from "../components/productFull";
-import ProductPage from "../components/productdesc";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -19,19 +17,18 @@ export default function Home(){
   const [selectedType, setSelectedType] = useState("ORDINATEUR"); 
 
 //api
-useEffect(() => {
-    if (selectedType) {
-      axios
-        .get(`http://localhost:8000/api/products/${selectedType}`)
-        .then((response) => {
-          setProducts(response.data);
-        })
-        .catch((error) => {
-          console.error("Error fetching products:", error);
-        });
-    }
-  }, [selectedType]);
-
+        useEffect(() => {
+            if (selectedType) {
+            axios
+                .get(`http://localhost:8000/api/products/${selectedType}`)
+                .then((response) => {
+                setProducts(response.data);
+                })
+                .catch((error) => {
+                console.error("Error fetching products:", error);
+                });
+            }
+        }, [selectedType]);
 
     return( <>
         <Filterr/>
@@ -120,9 +117,9 @@ useEffect(() => {
 
         <div>
         {products.map(products => (
-          <Product key={products.id} products={products} />
+            <Product key={products.id} products={products} />
         ))}
-      </div>
+    </div>
         
     </>
     );

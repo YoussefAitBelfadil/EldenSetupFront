@@ -1,36 +1,200 @@
-import {Button,Card,Badge} from 'react-bootstrap'
-import pc from "../images/ordinateur-portable-hp-dragonfly-g4-96z84et.jpg"
-import Countdown from "./countdown"
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Button, Badge, Spinner, Alert, Container, Row, Col } from 'react-bootstrap';
+import Countdown from "./countdown";
+import defaultImage from "../images/ordinateur-portable-hp-dragonfly-g4-96z84et.jpg";
+
+const API_BASE_URL = 'http://127.0.0.1:8000/api';
+
+const getImageUrl = (imagePath) => {
+  if (!imagePath) return defaultImage;
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    return imagePath;
+  }
+  return `${API_BASE_URL}/${imagePath.replace(/^\/+/, '')}`;
+};
 
 export default function Productfull() {
-  return (<>
-  <div className="position-relative ">
-    <Card style={{ width: '15rem' }} className='w-75'>
-  
-  <div style={{display:'flex'}}>
-  
-  <Card.Img variant="top" src={pc}  style={{height:'250px'}}/>
-  
+  const { type, id } = useParams();
+  const navigate = useNavigate();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [currentImg, setCurrentImg] = useState(defaultImage);
+  const [productImages, setProductImages] = useState([]);
 
-  <div>
-  <Card.Body  style={{textAlign:'justify',padding:'30px 40px'}}>
-    <Card.Text >
-      Some quick example text to build on the card title and make up the bulk of the card's content.
-    </Card.Text>
-    <h5> 5000 DH</h5>
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const endpoint = `${API_BASE_URL}/Details/${type}/${id}`;
+        console.log('Fetching from:', endpoint);
 
-    <Countdown daysInput={5} />
-    
-    <p >Le téléviseur Samsung 50" Crystal DU7100 UHD 4K transforme votre expérience visuelle avec son processeur Crystal 4K et la technologie HDR10+ pour des couleurs éclatantes et un contraste optimisé. Son design fin sans bordures maximise l'immersion, tandis que Motion Xcelerator assure une fluidité parfaite. Profitez d’un son immersif avec OTS Lite et Q-Symphony. Connectivité avancée : Wi-Fi 5, Bluetooth 5.2, HDMI eARC et AirPlay. Smart TV sous Tizen, il intègre Bixby et SmartThings pour une expérience intuitive et connectée.</p>
-    <Button variant="warning">Ajouter au panier</Button>
-  </Card.Body>
-  </div></div>
+        const response = await fetch(endpoint);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        setProduct(result.data);
+        
+        // Extract all available images from the product data
+        const images = [];
+        
+        // Add main image if exists
+        if (result.data.Image) images.push(result.data.Image);
+        if (result.data.image) images.push(result.data.image);
+        if (result.data.images?.main) images.push(result.data.images.main);
+        
+        // Add additional images if available
+        if (result.data.images?.gallery && Array.isArray(result.data.images.gallery)) {
+          images.push(...result.data.images.gallery);
+        }
+        
+        // Filter out any undefined/null values
+        const validImages = images.filter(img => img);
+        
+        setProductImages(validImages);
+        
+        // Set the first available image as current
+        if (validImages.length > 0) {
+          setCurrentImg(getImageUrl(validImages[0]));
+        }
+      } catch (err) {
+        console.error('Fetch error:', err);
+        setError(err.message);
+        setTimeout(() => navigate('/'), 3000);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  <Badge bg="danger" className="position-absolute top-0 start-0 " style={{ fontSize: "0.75rem", padding: "0.3em 0.6em" ,marginTop: "5px",marginLeft:"5px" }}>1500 DH</Badge>
-  <Badge bg="success" className="position-absolute top-0 start-0 " style={{ fontSize: "0.75rem", padding: "0.3em 0.6em" ,marginTop: "28px",marginLeft:"5px" }}>En stock</Badge>
-  <Badge bg="info" className="position-absolute top-0 start-0 " style={{ fontSize: "0.75rem", padding: "0.3em 0.6em" ,marginTop: "51px",marginLeft:"5px" }}>Nouveau </Badge>  
-</Card>
-</div>
-</>
+    fetchProduct();
+  }, [type, id, navigate]);
+
+  const handleClick = (img) => {
+    setCurrentImg(getImageUrl(img));
+  };
+
+  if (loading) {
+    return (
+      <div className="text-center mt-4">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <Alert variant="danger" className="mt-4">
+        {error} - Redirecting to products page...
+      </Alert>
+    );
+  }
+
+  if (!product) {
+    return (
+      <Alert variant="warning" className="mt-4">
+        Product not found
+      </Alert>
+    );
+  }
+
+  return (
+    <Container fluid className="m-4 w-100">
+      <Row>
+        <Col md={6}>
+          <div className="bg-body d-flex flex-column justify-content-center">
+            <div className='d-flex justify-content-center'> 
+              <img 
+                src={currentImg} 
+                alt={product.name }   
+                style={{width: '350px', height: 'auto', objectFit: 'contain'}}
+                className="img-fluid mb-3"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = defaultImage;
+                }}
+              />
+            </div>
+            
+            {productImages.length > 1 && (
+              <div className='d-flex justify-content-center gap-3 flex-wrap'>
+                {productImages.map((img, index) => (
+                  <img 
+                    key={index}
+                    src={getImageUrl(img)} 
+                    alt={`Thumbnail ${index + 1}`} 
+                    style={{
+                      width: '80px', 
+                      height: '80px',
+                      cursor: 'pointer',
+                      objectFit: 'cover',
+                      border: currentImg === getImageUrl(img) ? '2px solid #0d6efd' : '1px solid #ddd'
+                    }}  
+                    onClick={() => handleClick(img)}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = defaultImage;
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </Col>
+        
+        <Col md={6}>
+          <div>
+            <h2>{product.name}</h2>
+            <h4 className='text-primary'>{product.Marque} / {product.Sous-catégories}</h4>
+            
+            <div className="price-container mb-3">
+              {product. Prix && (
+                <span className="original-price me-2 text-decoration-line-through">
+                  {product.Prix} DH
+                </span>
+              )}
+              <span className="current-price fw-bold">
+                {product.discount_price || product.Prix} DH
+              </span>
+              {product.discount_price && (
+                <Badge bg="danger" className="ms-2">
+                  Save {product.Prix - product.Prix} DH
+                </Badge>
+              )}
+            </div>
+            
+            
+            
+            {product.Description && (
+              <div className="mb-4">
+                <h5>Description</h5>
+                <p>{product.Description}</p>
+              </div>
+            )}
+            
+            <div className="d-flex gap-3">
+              <Button 
+                variant="warning" 
+                className="add-to-cart-btn"
+                disabled={!product.stock || product.stock <= 0}
+              >
+                {product.stock > 0 ? 'Add to Cart' : 'Out of Stock'}
+              </Button>
+              
+              <Badge bg={product.stock > 0 ? "success" : "danger"} className="align-self-center">
+                {product.stock > 0 ? 'In Stock' : 'Out of Stock'}
+              </Badge>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }

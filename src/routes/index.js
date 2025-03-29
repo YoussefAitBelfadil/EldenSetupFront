@@ -10,6 +10,7 @@ import Solve from "../PAGES/solve";
 import Notfound from "../PAGES/not";
 import Layout from "../layouts/layout";
 import NotFound from "../PAGES/not";
+import Productfull from "../components/productFull";
 
 
 export const router = createBrowserRouter([
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
             {
                 path:'/solve',
                 element:<Solve/>
+            },
+            {
+                path:'/Details/:id/:type',
+                element:<Productfull/>
             },
             
         ],
