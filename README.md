@@ -1,75 +1,104 @@
-HEAD
-# RAMSYSA
-Ramsys is a company where you can find the compenents of the laptop and also they solve the troubles on it 
+# **EldenSetup** 🖥️💻  
+*A modern e-commerce platform for high-performance laptops and PC components.*  
 
-# Getting Started with Create React App
+![EldenSetup Banner](https://via.placeholder.com/1200x400?text=EldenSetup+Laptop+Store)  
+*(Replace with an actual screenshot or promo image of your website.)*  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## **📌 Overview**  
+**EldenSetup** is an online store built with **React.js** and **Bootstrap**, offering a seamless shopping experience for gaming laptops, workstations, and PC components.  
 
-In the project directory, you can run:
+### **🔗 Live Demo**  
+👉 [https://eldensetup.com](https://your-deployed-link-here.com) *(Replace with your actual deployment link)*  
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## **✨ Features**  
+✅ **Product Catalog** – Browse laptops, GPUs, CPUs, and accessories.  
+✅ **Responsive Design** – Works on mobile, tablet, and desktop.  
+✅ **Shopping Cart** – Add/remove items, adjust quantities.  
+✅ **User Authentication** – Signup, login, and order history.  
+✅ **Search & Filters** – Find products by brand, price, or specs.  
+✅ **Secure Checkout** – Stripe/PayPal integration (optional).  
+✅ **Admin Dashboard** – Manage products, orders, and users.  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## **🛠️ Technologies Used**  
+| **Tech** | **Purpose** |
+|----------|-------------|
+| React.js | Frontend framework |
+| React Router | Navigation & routing |
+| Bootstrap 5 | Responsive styling |
+| Stripe API | Payments (optional) |
+| GitHub Pages / Vercel | Deployment |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## **🚀 Quick Setup**  
+### **1. Clone the Repository**  
+```bash
+git clone https://github.com/YoussefAitBelfadil/EldenSetupFront.git
+cd EldenSetupFront
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **2. Install Dependencies**  
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **3. Run the Development Server**  
+```bash
+npm start
+```
+*(Runs on `http://localhost:3000`)*  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **4. Build for Production**  
+```bash
+npm run build
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## **📂 Project Structure**  
+```
+/public          → Static assets (images, favicon)
+/src
+  /components    → Reusable UI (Navbar, ProductCard)
+  /pages         → Main views (Home, Cart, Checkout)
+  /context       → State management (CartContext)
+  /styles        → CSS/SCSS files
+  /assets        → Logos, product images
+  /services      → API calls (Firebase, Stripe)
+  App.js         → Main app router
+  index.js       → React entry point
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## **🤝 How to Contribute**  
+1. **Fork** the repository.  
+2. Create a new branch:  
+   ```bash
+   git checkout -b feature/new-feature
+   ```
+3. Commit your changes:  
+   ```bash
+   git commit -m "Add new feature"
+   ```
+4. Push to the branch:  
+   ```bash
+   git push origin feature/new-feature
+   ```
+5. Open a **Pull Request**!  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## **📜 License**  
+This project is licensed under the **MIT License**.  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
- a240d4d (the first commit)
+### **🌟 Show Your Support**  
+If you like this project, give it a **⭐ Star** on GitHub!  
