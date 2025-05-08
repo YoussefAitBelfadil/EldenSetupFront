@@ -111,7 +111,7 @@ export default function Home(){
         <h5 className="pb-2" onClick={() => setSelectedType("stockage")}>Stockage</h5>
     </Col> 
     <Col  className={`border-bottom border-dark ${selectedType === "TABLETTE_GRAPHIQUE" ? "fw-bold text-primary" : ""}`}>
-        <h5 className="pb-2" onClick={() => setSelectedType("TABLETTE_GRAPHIQUE")}>Tablette</h5>
+        <h5 className="pb-2" onClick={() => setSelectedType("TABLETTE_GRAPHIQUE")}>Tablete</h5>
     </Col> 
         </Row>
 
